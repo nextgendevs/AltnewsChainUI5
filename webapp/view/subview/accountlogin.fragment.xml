@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="Login/Register" class="sapUiContentPadding" contentWidth="35rem" contentHeight="auto" >
+		<VBox visible="{Home>/bShowLogin}" renderType="Bare">
+			<HBox renderType="Bare">
+				<Label class="sapUiSmallMarginTop" text="Crypto Address"  width="40%"/>
+				<Input value="{Home>/temp/cryproAdd}" />
+			</HBox>
+			<HBox renderType="Bare">
+				<Label class="sapUiSmallMarginTop" width="40%" text="Password"/>
+				<Input type="Password"  value="{Home>/temp/secret}" />
+			</HBox>
+		</VBox>
+		<!-- Registeraion screen -->
+		<VBox visible="{= !${Home>/bShowLogin} }"  renderType="Bare">
+			<HBox renderType="Bare">
+				<Label class="sapUiSmallMarginTop" text="Username"  width="40%"/>
+				<Input enabled="{= ${appView>/isLoggedIn} === false }" value="{Home>/temp/username}" />
+			</HBox>
+			
+			<Text text="{ parts : [ { path : 'Home>/temp/cryproAdd' } ,{ path : 'i18n>PublicKey' } ], formatter : '.formatter.giveAccount' }" />
+			<Text text="{ parts : [ { path : 'Home>/temp/secret' } ,{ path : 'i18n>SecretKey' } ], formatter : '.formatter.giveAccount' }" />
+		</VBox>
+		
+		<Link visible="{Home>/bShowLogin}" text="New Here? Register" press="switchbLogin" />
+		<Link visible="{= !${Home>/bShowLogin} &amp;&amp;  ${appView>/isLoggedIn} === false }" text="Already have Account? Log-in" press="switchbLogin" />
+		<buttons>
+			<Button press="onCloseLogin" type="Reject" text="Cancel"/>
+			<Button press="onAccountLogin" visible="{Home>/bShowLogin}" type="Emphasized" text="Login"/>
+			<Button press="onRegister" visible="{= !${Home>/bShowLogin} &amp;&amp; ${appView>/isLoggedIn} === false }" type="Accept"  text="Register" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

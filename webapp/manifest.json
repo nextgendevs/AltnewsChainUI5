@@ -1,0 +1,157 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.chain.AltNews",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"fullWidth": true,
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "com.chain.AltNews.view.App",
+			"type": "XML",
+			"async": true
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.chain.AltNews.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.chain.AltNews.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Home",
+					"pattern": "",
+					"target": [
+						"Home"
+					]
+				},
+				{
+					"name": "Dashboard",
+					"pattern": "Dashboard",
+					"target": [
+						"Dashboard"
+					]
+				},
+				{
+					"name": "CreatePost",
+					"pattern": "CreatePost",
+					"target": [
+						"CreatePost"
+					]
+				},
+				{
+					"name": "CreateAd",
+					"pattern": "CreateAd",
+					"target": [
+						"CreateAd"
+					]
+				},
+				{
+					"name": "EndorseAd",
+					"pattern": "EndorseAd",
+					"target": [
+						"EndorseAd"
+					]
+				},
+					{
+					"name": "Claims",
+					"pattern": "Claims",
+					"target": [
+						"Claims"
+					]
+				}
+			],
+			"targets": {
+				"Home": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewId": "Home",
+					"viewName": "Home"
+				},
+				"Dashboard": {
+					"viewType": "XML",
+					"viewName": "Dashboard"
+				},
+				"CreatePost": {
+					"viewType": "XML",
+					"viewName": "CreatePost"
+				},
+				"CreateAd": {
+					"viewType": "XML",
+					"viewName": "CreateAd"
+				},
+				"EndorseAd": {
+					"viewType": "XML",
+					"viewName": "EndorseAd"
+				},
+				"Claims": {
+					"viewType": "XML",
+					"viewName": "Claims"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

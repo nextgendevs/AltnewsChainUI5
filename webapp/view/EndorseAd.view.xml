@@ -1,0 +1,35 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.chain.AltNews.controller.EndorseAd"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.f"   xmlns:l="sap.ui.layout">
+	<Page title="Endorse Advertisement" class="sapUiResponsiveContentPadding">
+		<content>
+			<l:Grid defaultSpan="XL5 L5 M12 S12" width="100%" defaultIndent="XL0 L0 M0 S0">
+				<VBox>
+					<Label text="Title"/>
+					<Input placeholder="Authors/Content creaters cryptoaddress" value="{Advt>/data/dest}"/>
+				</VBox>
+					<VBox>
+					<Label text="Amount"/>
+					<Input placeholder="in XLM" value="{Advt>/data/amount}"/>
+				</VBox>
+			</l:Grid>
+			<Label text="Select Ad" />
+			<f:GridList items="{Advt>/aAds}" mode="SingleSelectMaster">
+				<f:items>
+					<f:GridListItem width="50%">
+						<VBox alignContent="Center" alignItems="Center" justifyContent="Center" renderType="Bare">
+							<Image width="7rem" src="{Advt>hash}" height="7rem"/>
+							<Text text="{Advt>title}"/>
+						</VBox>
+					</f:GridListItem>
+				</f:items>
+			</f:GridList>
+		</content>
+			<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button  text="Cancel" press="onCancel" />
+				<Button text="Endorse Advertisement" type="Emphasized" press="onEndorse" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

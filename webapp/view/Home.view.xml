@@ -1,0 +1,34 @@
+<mvc:View controllerName="com.chain.AltNews.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Page id="page" class="sapUiResponsiveContentPadding" busyIndicatorDelay="0" busy="{Home>/bPageBusy}">
+		<customHeader>
+			<Toolbar>
+				<Image height="2rem" width="2rem" src="https://image.shutterstock.com/image-vector/p-m-pm-initial-logo-260nw-1247278039.jpg"/>
+				<Title text="Altnews"/>
+				<ToolbarSpacer/>
+				<MenuButton visible="{appView>/isLoggedIn}" text="Account" buttonMode="Regular" defaultAction="onDefaultAction">
+					<menu>
+						<Menu>
+							<MenuItem text="Dashboard" press="onDashboard" icon="sap-icon://bbyd-dashboard"/>
+							<MenuItem text="Logout" press="onLogout" icon="sap-icon://log"/>
+						</Menu>
+					</menu>
+				</MenuButton>
+				<Button type="Emphasized" visible="{= !${appView>/isLoggedIn} }" text="Login/Register" press="onLogin"/>
+			</Toolbar>
+		</customHeader>
+		<content>
+			<List  width="100%" selectionChange="onPost" mode="SingleSelectMaster" growing="true" showSeparators="All" items="{Home>/posts}"  growingScrollToLoad="true" growingThreshold="10">
+				<CustomListItem >
+				<HBox height="5rem" renderType="Bare" >
+				<!--<Image height="5rem"  width="5rem" src="https://image.shutterstock.com/z/stock-vector-modern-initial-drm-letter-vector-logo-design-with-square-concept-1491913055.jpg"  />-->
+				<VBox renderType="Bare" >
+					<Title text="{Home>title}"  />
+					<Text text="{Home>short}" />
+				</VBox>
+				</HBox>
+				</CustomListItem>
+				<!--<StandardListItem press="toPost"  title="{Home>title}" description="{Home>short}"/>-->
+			</List>
+		</content>
+	</Page>
+</mvc:View>

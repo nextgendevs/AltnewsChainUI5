@@ -1,0 +1,29 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.chain.AltNews.controller.Dashboard"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Dashboard" class="sapUiResponsiveContentPadding" >
+		<content>
+			<HBox width="100%" renderType="Bare">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="onCreatePost" header="Create Post"   ></GenericTile>
+					
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Create Ad"  press="onCreateAd" >
+						<TileContent>
+								<Text text="Create ads for endorsement" />
+							</TileContent>
+					</GenericTile>
+				
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Endorse Ad" press="onEndorse" >
+							<TileContent>
+								<Text text="Endorse already created Ad" />
+							</TileContent>
+					</GenericTile>
+				
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Available Claims" press="onClaims" >
+							<TileContent>
+								<Text text="Redeem the Ads income claims directly to account" />
+							</TileContent>
+					</GenericTile>
+			</HBox>
+			
+		</content>
+	</Page>
+</mvc:View>

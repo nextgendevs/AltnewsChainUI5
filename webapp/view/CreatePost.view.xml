@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.chain.AltNews.controller.CreatePost"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:RTE="sap.ui.richtexteditor">
+	<Page title="Create Post" class="sapUiResponsiveContentPadding">
+		<content>
+			<l:Grid defaultSpan="XL5 L5 M12 S12" defaultIndent="XL0 L0 M0 S0">
+				<VBox>
+					<Label text="Title"/>
+					<Input value="{Post>/data/title}"/>
+				</VBox>
+				<VBox>
+					<Label text="Short description"/>
+					<TextArea cols="60" rows="6" value="{Post>/data/short}"/>
+				</VBox>
+			</l:Grid>
+			<VBox renderType="Bare" width="100%">
+				<Label text="Post" class="sapUiSmallMargin"  />
+				<RTE:RichTextEditor showGroupInsert="true" value="{Post>/data/post}" ></RTE:RichTextEditor>
+			</VBox>
+				<l:Grid defaultSpan="XL5 L5 M12 S12" defaultIndent="XL0 L0 M0 S0">
+				<VBox>
+					<Label class="sapUiSmallMarginTopBottom" text="Include Ad"/>
+					<ComboBox id="dpClaimbles" selectedKey="{Post>/data/Ad}" change="onClaimables" items="{Post>/aClaimables}" >
+						<core:Item key="{Post>_id}" text="{Post>Ad/title}"  />
+					</ComboBox>
+				</VBox>
+			
+			</l:Grid>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button  text="Cancel" press="onCancel" />
+				<Button text="Publish" type="Emphasized" press="onPublish" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

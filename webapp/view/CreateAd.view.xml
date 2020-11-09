@@ -1,0 +1,28 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.chain.AltNews.controller.CreateAd"
+	xmlns:html="http://www.w3.org/1999/xhtml" 	xmlns:u="sap.ui.unified"  xmlns:l="sap.ui.layout">
+	<Page title="Create Advertisement" class="sapUiResponsiveContentPadding">
+		<content>
+				<l:Grid defaultSpan="XL5 L5 M12 S12" defaultIndent="XL0 L0 M0 S0">
+				<VBox>
+					<Label text="Title"/>
+					<Input value="{Advt>/data/title}"/>
+				</VBox>
+				<VBox>
+					<Label text="Short description"/>
+					<TextArea cols="60" rows="6" value="{Advt>/data/description}"/>
+				</VBox>
+				<VBox>
+					<Label text="Advertisement Image"/>
+					<u:FileUploader change="onUploadImage" ></u:FileUploader>
+				</VBox>
+			</l:Grid>
+		</content>
+			<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button  text="Cancel" press="onCancel" />
+				<Button text="Create Ad" type="Emphasized" press="onCreateAd" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
